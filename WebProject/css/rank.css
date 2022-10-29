@@ -9,37 +9,9 @@
 body{
     min-height: 100vh;
     background: #2f363e;
-}/*
-section{
-    position: relative;
-    min-width: 35em;
-    height: 100%;
-    overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: #2f363e;
-    
 }
-section::before{
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(#ffc107, #e91e63);
-    border-radius: 50%;
-    transform: translate(-120px, -160px);
-}
-section::after{
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(#2196f3, #31ff38);
-    border-radius: 50%;
-    transform: translate(130px, 180px);
-}*/
-
 ::-webkit-scrollbar{
     width: 0;
 }
@@ -90,7 +62,7 @@ section::after{
 .box{
     position: relative;
     width: 300px;
-    min-height: 20em;
+    min-height: 50em;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
     border: 1px  rgba(255, 255, 255, 0.5);
@@ -102,6 +74,7 @@ section::after{
 .box .list{
     position: relative;
     display: flex;
+    flex-direction: column;
     padding: 10px 10px 10px 15px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -109,6 +82,18 @@ section::after{
     cursor: pointer;
     transition: 0.5s;
     overflow: hidden;
+}
+#DivNome{
+    position: absolute;
+    font-size: 1.3em;
+    margin-left: 60px;
+}
+#DivDev{
+    position: absolute;
+    display: flex;
+    margin-left: 60px;
+    bottom: 5px;
+    color: purple;
 }
 .box .list:hover{
     background: #fff;
@@ -130,37 +115,4 @@ section::after{
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-.box .list .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
-}
-.box .list .content .rank{
-    position: absolute;
-    right: -30px;
-    color: #03a9f4;
-    font-size: 2em;
-    transition: 0.5s;
-}
-.box .list .content .rank small{
-    font-weight: 500;
-    opacity: 1;
-}
-.box .list:hover .content .rank{
-    right: 30px;
-}
-.box .list .content h4{
-    line-height: 1.2em;
-    font-weight: 600;
-    transition: 0.5s;
-}
-.box .list .content p{
-    font-size: 00.75em;
-    transition: 0.5s;
-}
-.box .list:hover .content h4,
-.box .list:hover .content p{
-    color: #333;
 }

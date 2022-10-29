@@ -40,7 +40,7 @@ form{
 .inputBox{
     position: relative;
     width: 100%;
-    margin-bottom: 20px;
+
 }
 .inputBox span{
     display: inline-block;
@@ -94,30 +94,9 @@ form{
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
-    margin-top: 10px;
 }
 .inputBox .box input[type="submit"]:hover{
     filter: brightness(1.1);
-}
-label{
-    color: #fff;
-    font-size: 0.85em;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-}
-label input{
-    margin-right: 5px;
-}
-.forgot{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    letter-spacing: 1px;
-    font-size: 0.85em;
-    text-decoration: none;
 }
 .BarraLogin{
     position: relative;
