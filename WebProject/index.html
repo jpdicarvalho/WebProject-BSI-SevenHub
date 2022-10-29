@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
+    <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>
+    <title>Rank</title>
+</head>
+<body>
+    <header>
+        <div class="dropdown" id="developer">
+            <input type="text" class="texBox" placeholder="Developer" readonly>
+            <div class="option">
+                <div onclick="show('Front-End   Developer')"><ion-icon name="code"></ion-icon> Front-End Developer</div>
+                <div onclick="show('Back-End     Developer')"><ion-icon name="code"></ion-icon> Back-End Developer</div>
+                <div onclick="show('Full Stack  Developer')"><ion-icon name="code"></ion-icon> Full Stack Developer</div>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <div class="imgLegue">
+        <img src="img/img-legue.png">
+    </div>
+    <div class="legendaImg">
+        <h3>Ligua Lendária</h3>
+    </div>
+    <ul class="navigation">
+        <li class="active">
+            <a href="cadastro.html">
+                <span class="icon"><ion-icon name="shield-outline"></ion-icon></span>
+                <span class="text">Rank</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <span class="text">Perfil</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                <span class="text">Mensagens</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="settings-outline"></ion-icon></ion-icon></span>
+                <span class="text">Configurações</span>
+            </a>
+        </li>
+    </ul>
+    <iframe src="rank.html" id="iframe" frameborder="none"></iframe>
+    <!--Dropdown-->
+    <script>
+        function show(anything){
+            document.querySelector('.texBox').value = anything;
+        }
+        let dropdown = document.querySelector('.dropdown');
+        dropdown.onclick = function(){
+            dropdown.classList.toggle('active');
+        }
+    </script>
+    <!--Menu Inferior-->
+    <script>
+        let list = document.querySelectorAll('.navigation li');
+        function activeLink(){
+            list.forEach((item) => item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) => item.addEventListener('click', activeLink))
+    </script>
+</body>
+</html>
