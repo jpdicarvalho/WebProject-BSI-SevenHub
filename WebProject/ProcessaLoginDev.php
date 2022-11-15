@@ -4,12 +4,12 @@ include_once('conexao.php');
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 if(empty($dados['usuario'])){
-    echo"<script> alert('Preencha o campo Usuário');
-    window.location.href='login.php';
+    echo"<script> alert('Preencha o campo Usuário!');
+    window.location.href='loginDev.php';
     </script>";
 }elseif(empty($dados['senha'])){
-    echo"<script> alert('Preencha o campo Senha');
-    window.location.href='login.php';
+    echo"<script> alert('Preencha o campo Senha!');
+    window.location.href='loginDev.php';
     </script>";
 }else{
     $query_usuario = "SELECT id, nome, usuario, senha
@@ -31,12 +31,12 @@ if(empty($dados['usuario'])){
            //$retorna = ['erro'=> false, 'dados' => $row_usuario];
         }else{
             echo"<script> alert('Senha Incorreta');
-            window.location.href='login.php';
+            window.location.href='loginDev.php';
             </>";
         }        
     }else{
         echo"<script> alert('Usuário Incorreto');
-        window.location.href='login.php';
+        window.location.href='loginDev.php';
         </script>";
     }    
 }
