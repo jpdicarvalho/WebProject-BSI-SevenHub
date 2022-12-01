@@ -14,7 +14,7 @@ if(empty($dados['usuario'])){
     </script>";
 }else{
     $query_usuario = "SELECT id, nome, usuario, senha
-                FROM users
+                FROM empresas
                 WHERE senha=:senha
                 LIMIT 1";
     $result_usuario = $conn->prepare($query_usuario);

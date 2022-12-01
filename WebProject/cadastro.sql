@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2022 at 08:39 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Tempo de geração: 01-Dez-2022 às 23:12
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cadastro`
+-- Banco de dados: `cadastro`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estrutura da tabela `empresas`
+--
+
+CREATE TABLE `empresas` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(60) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `usuario` varchar(20) NOT NULL,
+  `senha` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `empresas`
+--
+
+INSERT INTO `empresas` (`id`, `nome`, `email`, `usuario`, `senha`) VALUES
+(1, 'BNDS', 'bnds.prise@gmail.com', 'bnds.prise', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
 --
 
 CREATE TABLE `users` (
@@ -37,7 +58,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id`, `nome`, `email`, `usuario`, `senha`, `desenvolvedor`) VALUES
@@ -46,11 +67,17 @@ INSERT INTO `users` (`id`, `nome`, `email`, `usuario`, `senha`, `desenvolvedor`)
 (14, 'steve', 'stevejobs@gmail.com', 'steve.jobs', '1234', 'Back-End');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `users`
+-- Índices para tabela `empresas`
+--
+ALTER TABLE `empresas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -58,11 +85,17 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `usuario` (`usuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de tabela `empresas`
+--
+ALTER TABLE `empresas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
