@@ -7,11 +7,12 @@ session_start();
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' type='text/css' href='css/home.css'>
+    <link rel='stylesheet' type='text/css' href='css/homeEmp.css'>
     <title>home</title>
 </head>
 
 <body>
+    <h1>teste</h1>
         <?php
         //verificando se existe uma sessão
         if (isset($_SESSION['id']) and (isset($_SESSION['nome']))) {
@@ -28,11 +29,11 @@ session_start();
             if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
                 $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                 extract($row_usuario);
-                echo "<div id='container'>
+                /*echo "<div id='container'>
                         <img src='img/img1.png'>
                         <div id='usuario'>$usuario</div>
                         <div id='email'>$email</div>
-                      </div>";
+                      </div>";*/
                       echo"<a href='sair.php'> Sair</a>";
             } else {
                 echo"<script> alert('Usuário não encontrado. Realize o Login!');
