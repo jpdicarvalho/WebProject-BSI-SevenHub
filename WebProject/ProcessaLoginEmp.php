@@ -23,9 +23,9 @@ if(empty($dados['usuario'])){
 
     if(($result_usuario) and ($result_usuario->rowCount() != 0)){
         $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
-            /*echo"<script>
-                    window.location.href='home.php';
-                </script>";*/
+            echo"<script>
+                    window.location.href='homeEmp.php';
+                </script>";
             $_SESSION['id'] =  $row_usuario['id'];
             $_SESSION['nome'] =  $row_usuario['nome'];
     }else{
