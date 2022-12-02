@@ -12,11 +12,9 @@ session_start();
 </head>
 
 <body>
-    <h1>teste</h1>
         <?php
         //verificando se existe uma sessão
         if (isset($_SESSION['id']) and (isset($_SESSION['nome']))) {
-            echo "<div id='welcome'>Bem-vindo, " . $_SESSION['nome'] . "!</div>";
 
             include_once "conexao.php";
             // Selecionando os Dados do Usuário no BD
@@ -29,12 +27,31 @@ session_start();
             if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
                 $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                 extract($row_usuario);
-                /*echo "<div id='container'>
-                        <img src='img/img1.png'>
-                        <div id='usuario'>$usuario</div>
-                        <div id='email'>$email</div>
-                      </div>";*/
-                      echo"<a href='sair.php'> Sair</a>";
+                echo "<header>
+                    <div class='container'>
+                        <img id='img' src='img/img1.png'>
+                        <div class='box'>
+                            <div id='welcome'>Olá, " . $_SESSION['nome'] . "!</div>
+                            <div id='usuario'>$usuario</div>
+                        </div>
+                        <a href='sair.php'> Sair</a>
+                     </div>
+                     <hr>
+                     </header>";
+                      
+                      echo"<div class='section'>
+                            <div class='developer'>
+                                <p> Web Developer</p>
+                                <div class='btn'><a href='#'>FrontEnd</a></div>
+                                <div class='btn'><a href='#'>BackEnd</a></div>
+                                <div class='btn'><a href='#'>FullStack</a></div>
+                            </div>
+                            <div class='developer'>
+                                <p> Mobile Developer</p>
+                                <div class='btn'><a href='#'>Android</a></div>
+                                <div class='btn'><a href='#'>IOS</a></div>
+                            </div>
+                        </div>";
             } else {
                 echo"<script> alert('Usuário não encontrado. Realize o Login!');
                 window.location.href='loginEmp.php';
