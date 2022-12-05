@@ -33,28 +33,37 @@ session_start();
                                 <div id='usuario'>$usuario</div>
                             </div>
                             <a href='sair.php'> Sair</a>
+                            <a href='homeEmp.php'> Voltar</a>
                          </div>
                          </header>";
+                            //selecionando apenas os Devs Front-End do Banco de dados
+                            $query_dev = "SELECT nome, email, usuario, desenvolvedor FROM users WHERE desenvolvedor='Front-End'";
+                            $result_dev = $conn->prepare($query_dev);
+                            $result_dev->execute();
+                            if (($result_dev) and ($result_dev->rowCount() != 0))
+                                echo"<div class='section'>
+                                        <h1>Web Developes</h1>";
+                                    while($row_dev = $result_dev->fetch(PDO::FETCH_ASSOC)){
+                                            extract($row_dev);
+                                            echo"<div class='card'>
+                                                <div class='ImgBox'>
+                                                    <img src='img/img1.png' alt='foto do desenvolvedor'>
+                                                </div>
+                                                <div class='content'>
+                                                    <div class='details'>
+                                                        <h2>".$nome."<br><span>Front-End Developer</span></h2>
+                                                    <div class='actionBtn'>
+                                                        <button>Perfil</button>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>";
+                                    }
+                                echo"</div>";
+                                    
+                                
                         //Aqui vai o Select
                         //criar tabela dcom os tipos de desenvolvedores
-                         echo"<div class='section'>
-                                <h1>Web Developes</h1>
-                                <div class='card'>
-                                    <div class='ImgBox'>
-                                        <img src='img/img1.png' alt='foto do desenvolvedor'>
-                                    </div>
-                                    <div class='content'>
-                                    <div class='details'>
-                                        <h2>João Pedro<br><span>Front-End Developer</span></h2>
-                                        <div class='actionBtn'>
-                                            <button>Perfil</button>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                         
-                         ";
                        
                         
 

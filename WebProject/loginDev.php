@@ -45,7 +45,7 @@
                         <input type="submit" value="login">
                     </div>
                 </div>
-                <a href="cadastro.html" class="forgot">Criar conta</a><br>
+                <a href="cadastroDev.html" class="forgot">Criar conta</a><br>
             <a href="#" class="forgot">Esqueci minha senha</a>
             </form>
             <span>[Copyright © SevenHub 2022. Todos os direitos reservados];</span>

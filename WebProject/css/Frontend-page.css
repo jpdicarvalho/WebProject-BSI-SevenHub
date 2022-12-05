@@ -31,14 +31,16 @@ header{
     color: white;
 }
 .container a{
-    position: absolute;
+    position: relative;
     color: white;
     right: 0;
+    margin-left: 5px;
 }
 .section{
     position: relative;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     min-height: 100vh;
     padding: 10px;
@@ -48,8 +50,9 @@ header{
 }
 h1{
     position: absolute;
-    text-align: center;
-
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
 }
 .card{
     position: relative;
