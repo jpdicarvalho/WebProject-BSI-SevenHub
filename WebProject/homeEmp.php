@@ -42,7 +42,7 @@ session_start();
                       echo"<div class='section'>
                             <div class='developer'>
                                 <p> Web Developer</p>
-                                <div class='btn'><a href='#'>FrontEnd</a></div>
+                                <div class='btn'><a href='Frontend-page.php'>FrontEnd</a></div>
                                 <div class='btn'><a href='#'>BackEnd</a></div>
                                 <div class='btn'><a href='#'>FullStack</a></div>
                             </div>
