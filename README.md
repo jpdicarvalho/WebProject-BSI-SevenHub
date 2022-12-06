@@ -10,8 +10,8 @@ My project aims to develop a platform where companies can recruit developers of 
 
 =-= Note >>>
 for more information of the project access the Doc-funcionalidades-SevenHub!
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=
-Project status - 6 DEC 22
+
+=-=Project status - 6 DEC 22=-=
 
 Well, I'm prioritizing the construction of the Back-End of the application first, that's why sometimes
 Pages are minimally styled. therefore, the Back-End is in the following situation:
