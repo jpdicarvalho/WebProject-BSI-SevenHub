@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="img/logo-SevenHub.png" alt="logo da Plataforma SevenHub">
+    <p id="key">{</p><p>SevenHub</p><p id="key">}</p>
     </header>
     <section class="wrapper">
         <div id="stars"></div>
@@ -26,7 +26,7 @@
                         <div class="icon">
                             <ion-icon name="person"></ion-icon>
                         </div>
-                        <input type="text" name="usuario">
+                        <input type="text" name="usuario" placeholder="Digite aqui...">
                     </div>
                 </div>
                 <div class="inputBox">
@@ -35,11 +35,9 @@
                         <div class="icon">
                             <ion-icon name="lock-closed"></ion-icon>
                         </div>
-                        <input type="password" name="senha">
+                        <input type="password" name="senha" placeholder="Digite aqui...">
                     </div>
-                </div>
-                <label>
-                    <input type="checkbox">Lembre-me</label>
+                </div> 
                 <div class="inputBox">
                     <div class="box">
                         <input type="submit" value="login">
@@ -48,9 +46,10 @@
                 <a href="cadastroEmp.html" class="forgot">Criar conta</a><br>
             <a href="#" class="forgot">Esqueci minha senha</a>
             </form>
-            <span>[Copyright © SevenHub 2022. Todos os direitos reservados];</span>
+            
         </div>
     </section>
+    <span>[Copyright © SevenHub 2022. Todos os direitos reservados];</span>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

@@ -5,23 +5,23 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 if(empty($dados['nome'])){
     echo"<script> alert('Preencha o campo Nome!');
-    window.location.href='cadastro.html';
+    window.location.href='cadastroDev.html';
     </script>";
 }elseif(empty($dados['email'])){
     echo"<script> alert('Preencha o campo E-mail!');
-    window.location.href='cadastro.html';
+    window.location.href='cadastroDev.html';
     </script>";
 }elseif(empty($dados['usuario'])){
     echo"<script> alert('Preencha o campo Usuário!');
-    window.location.href='cadastro.html';
+    window.location.href='cadastroDev.html';
     </script>";
 }elseif(empty($dados['senha'])){
     echo"<script> alert('Preencha o campo Senha!');
-    window.location.href='cadastro.html';
+    window.location.href='cadastroDev.html';
     </script>";
 }elseif(empty($dados['desenvolvedor'])){
     echo"<script> alert('Selecione uma opção de Desenvolvedor!');
-    window.location.href='cadastro.html';
+    window.location.href='cadastroDev.html';
     </script>";
 }else{
     $query_consulta = "SELECT id FROM users WHERE email=:email LIMIT 1";

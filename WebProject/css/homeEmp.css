@@ -7,73 +7,112 @@
     box-sizing: border-box; 
 }
 body{
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #2f363e;
+    background-image: url(../img/imgbody.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 header{
-    position: relative;
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    background: #2f363e;
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 90px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
 }
 .container{
     position: relative;
     display: flex;
-    flex-direction: row;
     width: 100%;
-    height: 60px;
-    background: #2f363e;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
 }
 .box{
     position: relative;
-    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 120px;
     height: 60px;
-    padding: 10px;
-    background: #2f363e;
     color: white;
-}
-.container a{
-    position: absolute;
-    color: white;
-    right: 0;
-}
-hr{
-    position: relative;
-    width: 100%;
-    height: 1px;
-    border-color: white;
 }
 #img{
+    margin-left: 5px;
+    margin-right: 5px;
     width: 50px;
     height: 50px;
 }
-#welcome{
+.usuario{
     position: relative;
-    width: 150px;
+    display: flex;
+    text-align: left;
+    width: 100px;
     height: 20px;
+}
+#sair{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+}
+a{
+    color: aliceblue;
+    text-decoration: none;
 }
 .section{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
+    width: 350px;
+    min-height: 50vh;
     margin-top: 10px;
     padding: 10px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    background: white;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
 }
-p{
+#web{
     position: absolute;
     text-align: center;
     top: -8px;
-    background: white;
+    color: black;
     width: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    font-size: large;
+    font-weight: bold;
 }
 .section .developer{
     position: relative;
@@ -83,15 +122,29 @@ p{
     width: 100%;
     height: 200px;
     margin-top: 15px;
-    border: 1px solid powderblue;
     border-radius: 20px;
     flex-direction: row;
+}
+
+#key{
+    color: purple;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.5s;
 }
 .section .developer .btn{
     position: relative;
     width: 80px;
     height: 80px;
     margin: 15px;
+    transition: 0.5s;
+}
+
+.section .developer .btn:hover{
+    width: 90px;
+    height: 90px;
+    margin: 25px;
+    transition: 0.5s;
 }
 .section .developer .btn a{
     position: absolute;
@@ -108,7 +161,7 @@ p{
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
-    color: purple;
+    color: yellow;
     z-index: 1;
     letter-spacing: 1px;
     overflow: hidden;

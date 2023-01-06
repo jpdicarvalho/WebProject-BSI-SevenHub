@@ -9,35 +9,38 @@
 </head>
 <html>
     <body>
+        <header>
+            <p id="key">{</p><p>SevenHub</p><p id="key">}</p>
+        </header>
         <div class="container">
             <form method="POST" action="cadastroEmp.php">
-                <h3>Cadastro - Empresa</h3>
+                <h3>Criar conta</h3>
                 <div class="inputBox">
                     <span>Nome</span>
                     <div class="box">
                         <div class="icon"><ion-icon name="person"></ion-icon></div>
-                        <input type="text" name="nome">
+                        <input type="text" name="nome" placeholder="Digite aqui...">
                     </div>
                 </div>
                 <div class="inputBox">
                     <span>E-mail</span>
                     <div class="box">
                         <div class="icon"><ion-icon name="mail"></ion-icon></div>
-                        <input type="e-mail" name="email">
+                        <input type="e-mail" name="email" placeholder="Digite aqui...">
                     </div>
                 </div>
                 <div class="inputBox">
                     <span>Usuário</span>
                     <div class="box">
                         <div class="icon"><ion-icon name="person"></ion-icon></div>
-                        <input type="text" name="usuario">
+                        <input type="text" name="usuario" placeholder="Digite aqui...">
                     </div>
                 </div>
                 <div class="inputBox">
                     <span>Senha</span>
                     <div class="box">
                         <div class="icon"><ion-icon name="lock-closed"></ion-icon></div>
-                        <input type="password" name="senha">
+                        <input type="password" name="senha" placeholder="Digite aqui...">
                     </div>
                 </div>
                     <div class="inputBox">
@@ -48,15 +51,6 @@
                     <a href="LoginEmp.php" class="forgot">Fazer Login</a>
             </form>
         </div>
-        <div class="BarraLogin">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
     </div>
         <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script> 
         <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js" ></script>

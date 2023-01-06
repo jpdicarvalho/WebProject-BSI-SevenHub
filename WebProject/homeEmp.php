@@ -31,25 +31,25 @@ session_start();
                     <div class='container'>
                         <img id='img' src='img/img1.png'>
                         <div class='box'>
-                            <div id='welcome'>Olá, " . $_SESSION['nome'] . "!</div>
-                            <div id='usuario'>$usuario</div>
+                            <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
+                            <div class='usuario'>$usuario</div>
                         </div>
-                        <a href='sair.php'> Sair</a>
+                        <div id='sair'><a href='sair.php'>Sair</a></div>
                      </div>
-                     <hr>
+                     
                      </header>";
                       
                       echo"<div class='section'>
                             <div class='developer'>
-                                <p> Web Developer</p>
-                                <div class='btn'><a href='Frontend-page.php'>FrontEnd</a></div>
-                                <div class='btn'><a href='#'>BackEnd</a></div>
-                                <div class='btn'><a href='#'>FullStack</a></div>
+                                <p id='web'> Web Developer</p>
+                                <div class='btn'><a href='Frontend-page.php'><p id='key'>{</p>FrontEnd<p id='key'>}</p></a></div>
+                                <div class='btn'><a href='#'><p id='key'>{</p>BackEnd<p id='key'>}</p></a></div>
+                                <div class='btn'><a href='#'><p id='key'>{</p>FullStack<p id='key'>}</p></a></div>
                             </div>
                             <div class='developer'>
-                                <p> Mobile Developer</p>
-                                <div class='btn'><a href='#'>Android</a></div>
-                                <div class='btn'><a href='#'>IOS</a></div>
+                                <p id='web'> Mobile Developer</p>
+                                <div class='btn'><a href='#'><p id='key'>[</p>Android<p id='key'>]</p></a></div>
+                                <div class='btn'><a href='#'><p id='key'>[</p>IOS<p id='key'>]</p></a></div>
                             </div>
                         </div>";
             } else {
