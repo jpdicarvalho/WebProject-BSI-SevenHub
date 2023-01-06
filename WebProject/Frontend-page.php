@@ -26,16 +26,13 @@ session_start();
                         $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                         extract($row_usuario);
                         echo "<header>
-                        <div class='container'>
-                            <img id='img' src='img/img1.png'>
-                            <div class='box'>
-                                <div id='welcome'>Olá, " . $_SESSION['nome'] . "!</div>
-                                <div id='usuario'>$usuario</div>
-                            </div>
-                            <a href='sair.php'> Sair</a>
-                            <a href='homeEmp.php'> Voltar</a>
-                         </div>
-                         </header>";
+                        <img id='img' src='img/img1.png'>
+                        <div class='box'>
+                            <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
+                            <div class='usuario'>$usuario</div>
+                        </div>
+                        <div id='sair'><a href='sair.php'>Sair</a></div>
+                 </header>";
                             //selecionando apenas os Devs Front-End do Banco de dados
                             $query_dev = "SELECT nome, email, usuario, desenvolvedor FROM users WHERE desenvolvedor='Front-End'";
                             $result_dev = $conn->prepare($query_dev);

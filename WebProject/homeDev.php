@@ -28,12 +28,12 @@ session_start();
                 $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                 extract($row_usuario);
                 echo "<header>
-                    <img id='img' src='img/img1.png'>
-                    <div class='box'>
-                        <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
-                        <div class='usuario'>$usuario</div>
-                    </div>
-                    <div id='sair'><a href='sair.php'>Sair</a></div>
+                        <img id='img' src='img/img1.png'>
+                        <div class='box'>
+                            <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
+                            <div class='usuario'>$usuario</div>
+                        </div>
+                        <div id='sair'><a href='sair.php'>Sair</a></div>
                  </header>";
                  echo"<section class='wrapper'>
                         <div class='container'>
