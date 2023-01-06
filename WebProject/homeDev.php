@@ -15,7 +15,6 @@ session_start();
         <?php
         //verificando se existe uma sessão
         if (isset($_SESSION['id']) and (isset($_SESSION['nome']))) {
-            echo "<div id='welcome'>Bem-vindo, " . $_SESSION['nome'] . "!</div>";
 
             include_once "conexao.php";
             // Selecionando os Dados do Usuário no BD
@@ -28,12 +27,24 @@ session_start();
             if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
                 $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                 extract($row_usuario);
-                echo "<div id='container'>
-                        <img src='img/img1.png'>
-                        <div id='usuario'>$usuario</div>
-                        <div id='email'>$email</div>
-                      </div>";
-                      echo"<a href='sair.php'> Sair</a>";
+                echo "<header>
+                    <img id='img' src='img/img1.png'>
+                    <div class='box'>
+                        <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
+                        <div class='usuario'>$usuario</div>
+                    </div>
+                    <div id='sair'><a href='sair.php'>Sair</a></div>
+                 </header>";
+                 echo"<section class='wrapper'>
+                        <div class='container'>
+                            <h3>Seja bem vindo!</h3>
+                            <div class='btn'><p id='key'>{</p><a href='loginEmp.php'>Editar Perfil</a><p id='key'>}</p></div>
+                            <div class='btn'><p id='key'>{</p><a href='loginDev.php'>Visualizar Perfil</a><p id='key'>}</p></div>
+                        </div>
+                    </section>
+                 
+                 
+                 ";
             } else {
                 echo"<script> alert('Usuário não encontrado. Realize o Login!');
                 window.location.href='loginDev.php';
