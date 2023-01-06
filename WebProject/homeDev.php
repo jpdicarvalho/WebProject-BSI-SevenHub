@@ -39,7 +39,7 @@ session_start();
                         <div class='container'>
                             <h3>Seja bem vindo!</h3>
                             <div class='btn'><p id='key'>{</p><a href='loginEmp.php'>Editar Perfil</a><p id='key'>}</p></div>
-                            <div class='btn'><p id='key'>{</p><a href='loginDev.php'>Visualizar Perfil</a><p id='key'>}</p></div>
+                            <div class='btn'><p id='key'>{</p><a href='visualizar.php?id=$id'>Visualizar Perfil</a><p id='key'>}</p></div>
                         </div>
                     </section>
                  
