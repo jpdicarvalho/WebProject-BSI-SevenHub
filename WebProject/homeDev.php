@@ -8,10 +8,20 @@ session_start();
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' type='text/css' href='css/homeDev.css'>
+    <link rel="stylesheet" href="css/cube.css">
     <title>home</title>
 </head>
 
 <body>
+<div class="cube">
+        <div class="top"></div>
+        <div>
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+    </div>
         <?php
         //verificando se existe uma sessão
         if (isset($_SESSION['id']) and (isset($_SESSION['nome']))) {
