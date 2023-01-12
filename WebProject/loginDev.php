@@ -23,18 +23,12 @@
                 <div class="inputBox">
                     <span>Usuário</span>
                     <div class="box">
-                        <div class="icon">
-                            <ion-icon name="person"></ion-icon>
-                        </div>
                         <input type="text" name="usuario" placeholder="Digite aqui...">
                     </div>
                 </div>
                 <div class="inputBox">
                     <span>Senha</span>
                     <div class="box">
-                        <div class="icon">
-                            <ion-icon name="lock-closed"></ion-icon>
-                        </div>
                         <input type="password" name="senha" placeholder="Digite aqui...">
                     </div>
                 </div>
@@ -44,7 +38,6 @@
                     </div>
                 </div>
                 <a href="cadastroDev.html" class="forgot">Criar conta</a><br>
-            <a href="#" class="forgot">Esqueci minha senha</a>
             </form>
         </div>
     </section>

@@ -13,28 +13,18 @@
     <header>
     <p id="key">{</p><p>SevenHub</p><p id="key">}</p>
     </header>
-    <section class="wrapper">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
         <div class="container">
             <form method="POST" action="ProcessaLoginEmp.php">
-                <h3>Login</h3>
+            <h3>Login</h3>
                 <div class="inputBox">
                     <span>Usuário</span>
                     <div class="box">
-                        <div class="icon">
-                            <ion-icon name="person"></ion-icon>
-                        </div>
                         <input type="text" name="usuario" placeholder="Digite aqui...">
                     </div>
                 </div>
                 <div class="inputBox">
                     <span>Senha</span>
                     <div class="box">
-                        <div class="icon">
-                            <ion-icon name="lock-closed"></ion-icon>
-                        </div>
                         <input type="password" name="senha" placeholder="Digite aqui...">
                     </div>
                 </div> 
@@ -44,11 +34,9 @@
                     </div>
                 </div>
                 <a href="cadastroEmp.html" class="forgot">Criar conta</a><br>
-            <a href="#" class="forgot">Esqueci minha senha</a>
             </form>
             
         </div>
-    </section>
     <span>[Copyright © SevenHub 2022. Todos os direitos reservados];</span>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
