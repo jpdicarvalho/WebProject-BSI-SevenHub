@@ -25,11 +25,6 @@ header{
     width: 250px;
     height: 90px;
     padding: 5px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px;
 }
 .container{
     position: relative;
@@ -98,19 +93,14 @@ a{
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
+    backdrop-filter: blur(10px);
 }
 #web{
     position: absolute;
     text-align: center;
     top: -8px;
-    color: black;
+    color: whitesmoke;
     width: 150px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px;
-    backdrop-filter: blur(15px);
     font-size: large;
     font-weight: bold;
 }
