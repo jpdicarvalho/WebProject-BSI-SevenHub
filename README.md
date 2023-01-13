@@ -25,3 +25,11 @@ c) Developer user restricted session:
 -update of registered data. (not done)
 
 After completing all the Back-End steps, all that remains is to create a standardized platform styling.
+
+=-=Project status - 13 JAN 23=-=
+
+Well, the styling of the project is already fully done and now only the features listed below are missing:
+
+a) Implement the 'Edit Profile' functionality belonging to the restricted area of ​​the developer user;
+b) Import the user's data to the 'view profile' page so that he can see how his profile is being presented;
+c) Implement the functionality of 'View Profile' of the developers listed in the restricted area of ​​the company user.
