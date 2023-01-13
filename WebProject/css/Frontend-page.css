@@ -9,35 +9,24 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: 110vh;
     background: radial-gradient(ellipse at bottom, #211134 0%,#090a0f 100%);
-    min-height: 100vh;
 }
 header{
     position: absolute;
     top: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
     width: 250px;
-    height: 90px;
-    padding: 5px;
+    height: 50px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
-}
-.container{
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 55px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px;
-    backdrop-filter: blur(15px);
+    padding: 2px;
 }
 .box{
     position: relative;
@@ -49,7 +38,9 @@ header{
     color: white;
 }
 #img{
-    margin-left: 5px;
+    position: absolute;
+    left: 5px;
+    bottom: 3px;
     margin-right: 5px;
     width: 50px;
     height: 50px;
@@ -62,7 +53,7 @@ header{
     height: 20px;
 }
 #sair{
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +64,7 @@ header{
     border-radius: 30px;
     width: 40px;
     height: 40px;
-    margin-top: 7px;
+    right: 5px;
 }
 a{
     color: aliceblue;
@@ -86,7 +77,7 @@ a{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 400px;
+    width: 350px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -98,7 +89,9 @@ h1{
     position: absolute;
     left: 50%;
     top: 15px;
+    color: aliceblue;
     transform: translateX(-50%);
+    font-size: 16px;
 }
 .card{
     position: relative;
@@ -154,6 +147,7 @@ h1{
     margin: 15px;
     transition: 0.5s;
     transform: translateY(70px);
+    
 }
 .card:hover .content .details{
     transform: translateY(20px);
@@ -161,14 +155,20 @@ h1{
 .card .content .details h2{
     font-size: 1.0em;
     font-weight: 600;
-    color: #fff;
     line-height: 1.2em;
+    color: aqua;
 }
-.card .content .details h2 span{
+#key{
+    color: purple;
+    font-weight: bold;
+    font-size: 10px;
+    transition: 0.5s;
+}
+.card .content .details p{
     font-size: 0.75em;
     font-weight: 500;
-    margin-bottom: 20px;
-    
+    margin-bottom: 5px;
+    color: yellow;
 }
 .card .content .details .actionBtn{
     display: flex;

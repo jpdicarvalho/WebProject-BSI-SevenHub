@@ -43,28 +43,20 @@ session_start();
                                     while($row_dev = $result_dev->fetch(PDO::FETCH_ASSOC)){
                                             extract($row_dev);
                                             echo"<div class='card'>
-                                                <div class='ImgBox'>
-                                                    <img src='img/img1.png' alt='foto do desenvolvedor'>
-                                                </div>
-                                                <div class='content'>
-                                                    <div class='details'>
-                                                        <h2>".$nome."<br><span>Front-End Developer</span></h2>
-                                                    <div class='actionBtn'>
-                                                        <button>Perfil</button>
+                                                    <div class='ImgBox'>
+                                                        <img src='img/img1.png' alt='foto do desenvolvedor'>
                                                     </div>
+                                                    <div class='content'>
+                                                        <div class='details'>
+                                                            <h2>".$nome."<br></h2>
+                                                                <p>Front-End Developer</p>                                                        <div class='actionBtn'>
+                                                            <button>Perfil</button>
+                                                        </div>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 </div>";
                                     }
                                 echo"</div>";
-                                    
-                                
-                        //Aqui vai o Select
-                        //criar tabela dcom os tipos de desenvolvedores
-                       
-                        
-
-
                     } else {
                         echo"<script> alert('Usuário não encontrado. Realize o Login!');
                         window.location.href='loginEmp.php';
