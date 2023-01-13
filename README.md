@@ -33,3 +33,5 @@ Well, the styling of the project is already fully done and now only the features
 a) Implement the 'Edit Profile' functionality belonging to the restricted area of ​​the developer user;
 b) Import the user's data to the 'view profile' page so that he can see how his profile is being presented;
 c) Implement the functionality of 'View Profile' of the developers listed in the restricted area of ​​the company user.
+
+project link: https://webprojectbsi-2019.000webhostapp.com/
