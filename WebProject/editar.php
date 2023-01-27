@@ -2,6 +2,8 @@
 session_start();
 include_once "conexao.php";
 
+error_reporting(0);
+
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 if(empty($id)){
@@ -27,6 +29,7 @@ if(empty($id)){
     // verificando se o usuário clicou no botão 'Salvar'
     if(!empty($dados['EditarUsuario'])){
         $empty_input = false;
+        $arquivo = $_FILES['FotoUsuario'];
         $dados = array_map('trim', $dados);
         //verificando se o usuário preencheu todos os campos
         if(in_array("", $dados)){
@@ -36,9 +39,11 @@ if(empty($id)){
             $empty_input = true;
             echo "<p style='color: #f00;'>Erro: Formato de e-mail inválido</p>";
         }if(!$empty_input){
-            $query_up_usuario = "UPDATE users SET nome=:nome, descricao=:descricao, linkedin=:linkedin, instagram=:instagram, email=:email, html=:html, css=:css, php=:php, javascript=:javascript  WHERE id=:id";
+            $query_up_usuario = "UPDATE users SET nome=:nome, usuario=:usuario, senha=:senha, descricao=:descricao, linkedin=:linkedin, instagram=:instagram, email=:email, html=:html, css=:css, php=:php, javascript=:javascript, perfilgithub=:perfilgithub, FotoUsuario=:FotoUsuario  WHERE id=:id";
             $edit_usuario = $conn->prepare($query_up_usuario);
             $edit_usuario->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
+            $edit_usuario->bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);
+            $edit_usuario->bindParam(':senha', $dados['senha'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':descricao', $dados['descricao'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':linkedin', $dados['linkedin'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':instagram', $dados['instagram'], PDO::PARAM_STR);
@@ -47,11 +52,25 @@ if(empty($id)){
             $edit_usuario->bindParam(':css', $dados['css'], PDO::PARAM_INT);
             $edit_usuario->bindParam(':php', $dados['php'], PDO::PARAM_INT);
             $edit_usuario->bindParam(':javascript', $dados['javascript'], PDO::PARAM_INT);
+            $edit_usuario->bindParam(':perfilgithub', $dados['perfilgithub'], PDO::PARAM_STR);
+            $edit_usuario->bindParam(':FotoUsuario', $arquivo['name'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':id', $id, PDO::PARAM_INT);
-            if($edit_usuario->execute()){
-                echo"<script> alert('Suas informações foram alteradas com sucesso!');
+            $edit_usuario->execute();
+            if($edit_usuario->rowCount()){
+                if((isset($arquivo['name'])) AND (!empty($arquivo['name']))){
+                    //recuperando o ultimo ID inserido no BD
+                    $ULTIMO_ID_INSERIDO = $conn->lastInsertId();
+                    //Diretorio onde a imagem será salva
+                    $diretorio = "img/$ULTIMO_ID_INSERIDO/";
+                    //criando diretorio
+                    mkdir($diretorio, 0755);
+                    //fazendo o up load da imagem
+                    $nome_img = $arquivo['name'];
+                    move_uploaded_file($arquivo['tmp_name'], $diretorio . $nome_img);
+                }
+                /*echo"<script> alert('Suas informações foram alteradas com sucesso!');
                                     window.location.href='homeDev.php';
-                    </script>";
+                    </script>";*/
             }else{
                 echo"<script> alert('Erro: Não foi possível alterar suas informações, verifique os campos e tente novamente!');
                                     window.location.href='editar.php';
@@ -62,7 +81,7 @@ if(empty($id)){
     ?>
     <?php
     //buscando os dados já cadastrados pelo usuário
-    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor, descricao, linkedin, instagram, html, css, php, javascript FROM users WHERE id=$id LIMIT 1";
+    $query_usuario = "SELECT id, nome, email, usuario, senha, desenvolvedor, descricao, linkedin, instagram, html, css, php, javascript, perfilgithub, FotoUsuario FROM users WHERE id=$id LIMIT 1";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->execute();
     ?>
@@ -79,13 +98,33 @@ if(empty($id)){
         <div id="sair"><a href="sair.php">Sair</a></div>
         </header>
         <section class="wrapper">
-            <form id="edit-usuario" method="POST" action="">
-                <img id="img" src="img/img1.png">
+            <form id="edit-usuario" method="POST" action="" enctype="multipart/form-data">
+                <?php
+                if((!empty($FotoUsuario)) AND (file_exists("img/0/$FotoUsuario"))){
+                    echo "<img class='imgUsuario' src='img/0/$FotoUsuario'>";
+                }else{
+                    echo "<img src='img/img1.png'>";
+                }
+                ?>
+                
+                <input type="file" name="FotoUsuario" id="FotoUsuario">
                 <input type="text" name="nome" id="nome" placeholder="Nome completo" value="<?php
                                     if(isset($dados['nome'])){
                                         echo $dados['nome'];
                                     }elseif(isset($row_usuario['nome'])){
                                         echo $row_usuario['nome'];
+                                    }?>">
+                <input type="text" name="usuario" id="usuario" placeholder="Nome de usuário" value="<?php
+                                    if(isset($dados['usuario'])){
+                                        echo $dados['usuario'];
+                                    }elseif(isset($row_usuario['usuario'])){
+                                        echo $row_usuario['usuario'];
+                                    }?>">
+                <input type="password" name="senha" id="senha" placeholder="informe sua senha" value="<?php
+                                    if(isset($dados['senha'])){
+                                        echo $dados['senha'];
+                                    }elseif(isset($row_usuario['senha'])){
+                                        echo $row_usuario['senha'];
                                     }?>">
                 <div class="container">
                     <h2>Descrição</h2>
@@ -135,15 +174,17 @@ if(empty($id)){
                         <input type='checkbox' name='javascript' id='javascript' value="1" <?php echo $selecionado?>><p style='color: yellow;'>JavaScript</p>
                     </div>
                     </div>
-                    <h2>Projetos</h2>
+                    <h2>Perfil do GitHub</h2>
                         <div class='Skillfilde'>
-                        <div class='SkillBox'>web site</div>
-                        <div class='SkillBox'>plataformas</div>
-                        <div class='SkillBox'>Mobile</div>
+                        <input type='text' name='perfilgithub' id='perfilgithub' placeholder='Informe seu GitHub' value="<?php
+                                    if(isset($dados['perfilgithub'])){
+                                        echo $dados['perfilgithub'];
+                                    }elseif(isset($row_usuario['perfilgithub'])){
+                                        echo $row_usuario['perfilgithub'];
+                                    }?>">
                     </div>
                     <h2>Contato</h2>
                     <div class='Skillfilde-contato'>
-                        
                             <input type='text' name='linkedin' id='linkedin' placeholder='Informe seu LinkedIn' value="<?php
                                     if(isset($dados['linkedin'])){
                                         echo $dados['linkedin'];
@@ -187,7 +228,4 @@ if(empty($id)){
     }
     ?>
 </body>
-<!--<textarea id='descricao' name='descricao' rows='5' cols='33'>
-                                Fale um pouco sobre você...
-                            </textarea>-->
 </html>
