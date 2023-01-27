@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Jan-2023 às 15:46
+-- Tempo de geração: 27-Jan-2023 às 20:12
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 7.4.30
 
@@ -55,19 +55,27 @@ CREATE TABLE `users` (
   `email` varchar(60) NOT NULL,
   `usuario` varchar(20) NOT NULL,
   `senha` varchar(8) NOT NULL,
-  `desenvolvedor` varchar(11) NOT NULL
+  `desenvolvedor` varchar(11) NOT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `instagram` varchar(30) DEFAULT NULL,
+  `html` int(1) DEFAULT NULL,
+  `css` int(1) DEFAULT NULL,
+  `php` int(1) DEFAULT NULL,
+  `javascript` int(1) DEFAULT NULL,
+  `perfilgithub` varchar(100) NOT NULL,
+  `FotoUsuario` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`id`, `nome`, `email`, `usuario`, `senha`, `desenvolvedor`) VALUES
-(12, 'joão pedro', 'joaopedrobraga.07@gmail.com', 'jp.dicarvalho', '123', 'Front-End'),
-(13, 'zuck', 'zuck@gmail.com', 'zuck.berg', '12345', 'Full Stack'),
-(14, 'steve', 'stevejobs@gmail.com', 'steve.jobs', '1234', 'Back-End'),
-(15, 'apollo', 'apollo.hi@gmail.com', 'apollo.18', '123456', 'Front-End'),
-(16, 'Jarlysson Auzier', 'jarlysson@gmail.com', 'jarlysso.az', '147', 'Front-End');
+INSERT INTO `users` (`id`, `nome`, `email`, `usuario`, `senha`, `desenvolvedor`, `descricao`, `instagram`, `html`, `css`, `php`, `javascript`, `perfilgithub`, `FotoUsuario`) VALUES
+(12, 'João Pedro', 'joaopedrobraga.07@gmail.com.br', 'jp.dicarvalho', '123', 'Front-End', 'olá, meu nome é João Pedro e tenho 21 anos sou desenvolvedor Front-End há mais de 5 anos, possuo bastante experiência nesta área...', '@jp.dicarvalho', 1, 1, 1, 1, 'https://github.com/jpdicarvalho', 'img1.jpg'),
+(13, 'zuck', 'zuck@gmail.com', 'zuck.berg', '12345', 'Full Stack', 'dfbdfbfbfbfbabfab', 'sgsg', 1, 1, NULL, NULL, 'sgsg', '1581974.jpg'),
+(14, 'steve', 'stevejobs@gmail.com', 'steve.jobs', '1234', 'Back-End', NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+(15, 'apollo', 'apollo.hi@gmail.com', 'apollo.18', '123456', 'Front-End', NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+(16, 'Jarlysson Auzier', 'jarlysson@gmail.com', 'jarlysso.az', '147', 'Front-End', NULL, NULL, NULL, NULL, NULL, NULL, '', '');
 
 --
 -- Índices para tabelas despejadas
