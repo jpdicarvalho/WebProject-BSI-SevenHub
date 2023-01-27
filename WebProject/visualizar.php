@@ -22,7 +22,7 @@ if(empty($id)){
 </head>
 <body>
     <?php
-    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor, descricao, linkedin, instagram, html, css, php, javascript, perfilgithub, FotoUsuario FROM users WHERE id=$id LIMIT 1";
+    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor, descricao, instagram, html, css, php, javascript, perfilgithub, FotoUsuario FROM users WHERE id=$id LIMIT 1";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->execute();
 
@@ -38,8 +38,8 @@ if(empty($id)){
         </header>
         <section class='wrapper'>
         <?php
-                if((!empty($FotoUsuario)) AND (file_exists("img/0/$FotoUsuario"))){
-                    echo "<img class='imgUsuario' src='img/0/$FotoUsuario'>";
+                if((!empty($FotoUsuario)) AND (file_exists("img/$id/$FotoUsuario"))){
+                    echo "<img class='imgUsuario' src='img/$id/$FotoUsuario'>";
                 }else{
                     echo "<img src='img/img1.png'>";
                 }

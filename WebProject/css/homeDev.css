@@ -21,14 +21,14 @@ header{
     flex-direction: row;
     top: 20px;
     width: 275px;
-    height: 50px;
+    height: 70px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
     color: black;
-    padding-left: 60px;
+    padding-left: 10px;
     font-size: 12px;
     backdrop-filter: blur(15px);
 }
@@ -46,13 +46,15 @@ header{
     width: 100%;
     height: 60px;
     color: white;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: bold;
 }
-#img{
-    position: absolute;
-    left: 5px;
-    top: -3px;
-    width: 50px;
-    height: 50px;
+.imgUsuario{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 .usuario{
     position: relative;
@@ -67,7 +69,7 @@ header{
     justify-content: center;
     align-items: center;
     right: 5px;
-    top: -3px;
+    top: 5px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -80,6 +82,8 @@ header{
 a{
     text-decoration: none;
     color: aliceblue;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .wrapper{
@@ -109,7 +113,9 @@ a{
 }
 h3{
     color: aliceblue;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: bold;
 }
 .btn{
     position: relative;
@@ -132,9 +138,9 @@ h3{
     width: 250px;
 }
 .btn a{
-    color: #090a0f;
+    color: yellow;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     transition: 0.5s;
 }

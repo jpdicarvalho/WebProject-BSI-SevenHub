@@ -28,7 +28,7 @@ session_start();
 
             include_once "conexao.php";
             // Selecionando os Dados do Usuário no BD
-            $query_usuario = "SELECT id, nome, email, usuario FROM users WHERE id=:id LIMIT 1";
+            $query_usuario = "SELECT id, nome, email, usuario, FotoUsuario FROM users WHERE id=:id LIMIT 1";
             $result_usuario = $conn->prepare($query_usuario);
             //Substituindo o link da Seleção sql pelo valor que está na variável global '$result_usuario'
             $result_usuario->bindParam(':id', $_SESSION['id'], PDO::PARAM_INT);
@@ -37,24 +37,28 @@ session_start();
             if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
                 $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                 extract($row_usuario);
-                echo "<header>
-                        <img id='img' src='img/img1.png'>
-                        <div class='box'>
-                            <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
-                            <div class='usuario'>$usuario</div>
+                ?>
+                <header>
+                <?php
+                if((!empty($FotoUsuario)) AND (file_exists("img/$id/$FotoUsuario"))){
+                    echo "<img class='imgUsuario' src='img/$id/$FotoUsuario'>";
+                }else{
+                    echo "<img src='img/img1.png'>";
+                }?>
+                <div class='box'>
+                            <div class='usuario'>Olá, <?php echo $_SESSION['nome'];?></div>
+                            <div class='usuario'><?php echo $usuario;?></div>
                         </div>
-                        <div id='sair'><a href='sair.php'>Sair</a></div>
-                 </header>";
-                 echo"<section class='wrapper'>
+                        <div id='sair'><a href="sair.php">Sair</a></div>
+                 </header>
+                <section class='wrapper'>
                         <div class='container'>
                             <h3>Seja bem vindo!</h3>
-                            <div class='btn'><p id='key'>{</p><a href='editar.php?id=$id'>Editar Perfil</a><p id='key'>}</p></div>
-                            <div class='btn'><p id='key'>{</p><a href='visualizar.php?id=$id'>Visualizar Perfil</a><p id='key'>}</p></div>
+                            <div class='btn'><p id='key'>{</p><a href="editar.php?<?php echo "id=$id";?>">Editar Perfil</a><p id='key'>}</p></div>
+                        <div class='btn'><p id='key'>{</p><a href="visualizar.php?<?php echo "id=$id";?>">Visualizar Perfil</a><p id='key'>}</p></div>
                         </div>
                     </section>
-                 
-                 
-                 ";
+            <?php
             } else {
                 echo"<script> alert('Usuário não encontrado. Realize o Login!');
                 window.location.href='loginDev.php';
