@@ -22,52 +22,83 @@ if(empty($id)){
 </head>
 <body>
     <?php
-    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor FROM users WHERE id=$id LIMIT 1";
+    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor, descricao, linkedin, instagram, html, css, php, javascript, perfilgithub, FotoUsuario FROM users WHERE id=$id LIMIT 1";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->execute();
 
     if(($result_usuario) AND ($result_usuario->rowCount() !=0)){
         $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
         extract($row_usuario);
-        echo "<header>
-                    <div class='box'>
-                    <p id='key'>>></p><div class='usuario'>Modo visitante</div>
-                    </div>
-                    <div id='sair'><a href='sair.php'>Sair</a></div>
-                 </header>";
-                 echo"<section class='wrapper'>
-                        <img id='img' src='img/img1.png'>
-                        <span id='nome'>$nome</span>
-                        <div class='container'>
-                            <h2>Descrição</h2>
-                            <div id=descricao>
-                                <span id='nome'>Lorem ipsum dolor sit amet.
-                                    Aut fugit necessitatibus est molestiae Quis ut minima voluptates?
-                                    Non rerum corporis 
-                                </span>  
+        ?>
+        <header>
+            <div class='box'>
+                <p id='key'>>></p><div class='usuario'>Modo visitante</div>
+            </div>
+            <div id='sair'><a href='sair.php'>Sair</a></div>
+        </header>
+        <section class='wrapper'>
+        <?php
+                if((!empty($FotoUsuario)) AND (file_exists("img/0/$FotoUsuario"))){
+                    echo "<img class='imgUsuario' src='img/0/$FotoUsuario'>";
+                }else{
+                    echo "<img src='img/img1.png'>";
+                }
+        ?>
+            <span id='nome'><?php echo $nome; ?></span>
+            <div class='container'>
+                <h2>Descrição</h2>
+                    <div id=descricao>
+                        <span id='nome'><?php echo $descricao?></span>  
                             </div>
                             <h2>Skill</h2>
                             <div class='Skillfilde'>
-                                <div class='SkillBox'>HTML</div>
-                                <div class='SkillBox'>CSS</div>
-                                <div class='SkillBox'>java</div>
+                                <?php
+                                    if($html == 1){
+                                        echo"<div id='html'>";
+                                        echo "<p style='position: absolute; top: 10px; color: #fff; font-size: 26px; font-weight: bold;'>HTML</P>";
+                                        echo "<p style='position: absolute; top: 35px; color: #fff; font-size: 35px; font-weight: bold;'>5</P>";
+                                        echo"</div>";
+                                    }else{}
+                                ?>
+                                <?php
+                                    if($css == 1){
+                                        echo"<div id='css'>";
+                                        echo "<p style='position: absolute; top: 10px; color: #000; font-size: 26px; font-weight: bold;'>CSS</P>";
+                                        echo "<p style='position: absolute; top: 35px; color: #fff; font-size: 35px; font-weight: bold;'>3</P>";
+                                        echo"</div>";
+                                    }else{}
+                                ?>
+                                <?php
+                                    if($php == 1){
+                                        echo"<div class='SkillBox' style='background: rgb(119,123,179);'>";
+                                        echo "<p style='color: #000; font-size: 35px; font-weight: bold;'>PHP</P>";
+                                        echo"</div>";
+                                    }else{}
+                                ?>
+                                <?php
+                                    if($javascript == 1){
+                                        echo"<div class='SkillBox' style='background: yellow;'>";
+                                        echo "<p style='position: absolute; top: 35px; right: 7px; color: #000; font-size: 35px; font-weight: bold; '>JS</P>";
+                                        echo"</div>";
+                                    }else{}
+                                ?>
                             </div>
-                            <h2>Projetos</h2>
+                            <h2>Perfil do GitHub</h2>
                             <div class='Skillfilde'>
-                                <div class='SkillBox'>web site</div>
-                                <div class='SkillBox'>plataformas</div>
-                                <div class='SkillBox'>Mobile</div>
+                                <div class='GitHubBox'>
+                                    <span id='nome'><a href="" style="color: aliceblue; text-decoration: underline;"><?php echo $perfilgithub?></a></span>
+                                </div>
                             </div>
                             <h2>Contato</h2>
-                            <div class='Skillfilde'>
-                                <div class='SkillBox'>LinkedIn</div>
-                                <div class='SkillBox'>Instagram</div>
-                                <div class='SkillBox'>WhatsApp</div>
+                            <div class='contato'>
+                                    <p>Instagram: <?php echo $instagram;?></p>
+                                    <p>E-mail: <?php echo $email;?></p>
                             </div>
                             <div class='Skillfilde'>
                                 <div id='voltar'><a href='homeDev.php'>Voltar</a></div>
                             </div>    
-                    </section>";
+                    </section>
+    <?php
     }else{
         echo"<script> alert('Usuário não encontrado!');
                 window.location.href='index.html';

@@ -80,7 +80,7 @@ header{
 }
 a{
     text-decoration: none;
-    color: aliceblue;
+    color: yellow;
 }
 
 .wrapper{
@@ -99,10 +99,11 @@ a{
     padding-bottom: 20px;
 }
 
-#img{
+.imgUsuario{
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 #nome{
     margin: 5px;
@@ -121,7 +122,7 @@ a{
 h2{
     position: relative;
     text-align: center;
-    padding: 5px;
+    margin-top: 10px;
     color: yellow;
 }
 #descricao{
@@ -135,6 +136,7 @@ h2{
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
+    font-size: 14px;
 }
 h4{
     position: relative;
@@ -153,27 +155,71 @@ h4{
     justify-content: center;
     align-items: center;
     color: floralwhite;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: 5px;
     background: rgba(255, 255, 255, 0.05);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
+}
+#html{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background: radial-gradient(ellipse at bottom, orange 0%,red 100%);
     border-radius: 30px;
+}
+#css{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background: radial-gradient(ellipse at bottom, aqua 0%,blue 100%);
+    border-radius: 30px;
+}
+.GitHubBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    margin-top: 10px;
+    width: 80%;
+    font-size: 15px;
+    font-weight: bold;
+}
+.contato{
+    display: flex;
+    color: aqua;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 15px;
+    cursor: pointer;
 }
 #voltar{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: floralwhite;
-    width: 100px;
-    height: 60px;
+    color: yellow;
+    width: 60px;
+    height: 40px;
     margin: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: black;
     border-radius: 30px;
-    border-radius: 30px;
+    margin-top: 20px;
 }
