@@ -25,16 +25,18 @@ session_start();
                     if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
                         $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                         extract($row_usuario);
-                        echo "<header>
+        ?>
+                        <header>
                         <img id='img' src='img/img1.png'>
                         <div class='box'>
-                            <div class='usuario'>Olá, " . $_SESSION['nome'] . "!</div>
-                            <div class='usuario'>$usuario</div>
+                            <div class='usuario'>Olá, <?php echo $_SESSION['nome'];?></div>
+                            <div class='usuario'><?php echo $usuario;?></div>
                         </div>
                         <div id='sair'><a href='sair.php'>Sair</a></div>
-                 </header>";
+                 </header>
+                 <?php
                             //selecionando apenas os Devs Front-End do Banco de dados
-                            $query_dev = "SELECT nome, email, usuario, desenvolvedor FROM users WHERE desenvolvedor='Front-End'";
+                            $query_dev = "SELECT id, nome, email, usuario, desenvolvedor, FotoUsuario FROM users WHERE desenvolvedor='Front-End'";
                             $result_dev = $conn->prepare($query_dev);
                             $result_dev->execute();
                             if (($result_dev) and ($result_dev->rowCount() != 0))
@@ -42,21 +44,30 @@ session_start();
                                         <h1>Web Developes</h1>";
                                     while($row_dev = $result_dev->fetch(PDO::FETCH_ASSOC)){
                                             extract($row_dev);
-                                            echo"<div class='card'>
+                ?>                              <div class='card'>
                                                     <div class='ImgBox'>
-                                                        <img src='img/img1.png' alt='foto do desenvolvedor'>
+                                                    <?php
+                                                        if((!empty($FotoUsuario)) AND (file_exists("img/$id/$FotoUsuario"))){
+                                                            echo "<img class='imgUsuario' src='img/$id/$FotoUsuario'>";
+                                                        }else{
+                                                            echo "<img src='img/img1.png'>";
+                                                        }?>
                                                     </div>
                                                     <div class='content'>
                                                         <div class='details'>
-                                                            <h2>".$nome."<br></h2>
-                                                                <p>Front-End Developer</p>                                                        <div class='actionBtn'>
-                                                            <button>Perfil</button>
-                                                        </div>
+                                                            <h2><?php echo $usuario;?><br></h2>
+                                                                <p>Front-End Developer</p>
+                                                                <div class='actionBtn'>
+                                                                    <button><a href="visualizar.php?<?php echo "id=$id";?>">Visualizar Perfil</a></button> 
+                                                                </div>
                                                         </div>
                                                     </div>
-                                                </div>";
+                                                </div>
+                                <?php
                                     }
-                                echo"</div>";
+                                ?>
+                                </div>
+                    <?php
                     } else {
                         echo"<script> alert('Usuário não encontrado. Realize o Login!');
                         window.location.href='loginEmp.php';

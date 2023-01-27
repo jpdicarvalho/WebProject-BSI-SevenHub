@@ -95,7 +95,7 @@ if(empty($id)){
                                     <p>E-mail: <?php echo $email;?></p>
                             </div>
                             <div class='Skillfilde'>
-                                <div id='voltar'><a href='homeDev.php'>Voltar</a></div>
+                                <div id='voltar'><a href="homeDev.php">Voltar</a></div>
                             </div>    
                     </section>
     <?php

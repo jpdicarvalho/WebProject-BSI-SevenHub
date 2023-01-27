@@ -39,17 +39,19 @@ session_start();
                 extract($row_usuario);
                 ?>
                 <header>
-                <?php
-                if((!empty($FotoUsuario)) AND (file_exists("img/$id/$FotoUsuario"))){
-                    echo "<img class='imgUsuario' src='img/$id/$FotoUsuario'>";
-                }else{
-                    echo "<img src='img/img1.png'>";
-                }?>
-                <div class='box'>
-                            <div class='usuario'>Olá, <?php echo $_SESSION['nome'];?></div>
-                            <div class='usuario'><?php echo $usuario;?></div>
-                        </div>
-                        <div id='sair'><a href="sair.php">Sair</a></div>
+                    <div class="box">
+                        <?php
+                        if((!empty($FotoUsuario)) AND (file_exists("img/$id/$FotoUsuario"))){
+                            echo "<img class='imgUsuario' src='img/$id/$FotoUsuario'>";
+                        }else{
+                            echo "<img src='img/img1.png' style='width: 60px;>";
+                        }?>
+                    </div>
+                    <div class="boxusuario">
+                        <div class='usuario'>Olá, <?php echo $_SESSION['nome'];?></div>
+                        <div class='usuario'><?php echo $usuario;?></div>
+                    </box>
+                    <div id='sair'><a href="sair.php">Sair</a></div>
                  </header>
                 <section class='wrapper'>
                         <div class='container'>

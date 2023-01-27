@@ -26,8 +26,9 @@ header{
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
-    color: black;
-    font-size: 16px;
+    color: yellow;
+    font-size: 20px;
+    font-weight: bold;
     backdrop-filter: blur(15px);
 }
 header:hover{
@@ -68,8 +69,8 @@ form{
 }
 .container h3{
     color: #fff;
-    font-weight: 600;
-    font-size: 1.3em;
+    font-weight: bold;
+    font-size: 24px;
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
@@ -85,7 +86,8 @@ form{
     color: #fff;
     margin-bottom: 30px;
     letter-spacing: 1px;
-    font-size: 0.75em;
+    font-size: 14px;
+    font-weight: bold;
     border-left: 4px solid yellow;
     padding-left: 4px;
     line-height: 1em;
@@ -130,7 +132,8 @@ form{
     border-bottom: 1px solid rgba(255,255,255,0.1);
     color: white;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: bold;
     transition: 0.5s;
 }
 .inputBox .box input[type="submit"]:hover{
@@ -149,6 +152,8 @@ select{
     border-bottom: 1px solid rgba(255,255,255,0.1);
     border-radius: 30px;
     backdrop-filter: blur(10px);
+    font-size: 14px;
+    font-weight: bold;
 }
 select option{
     color: gray;
@@ -169,7 +174,8 @@ label input{
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 0.90em;
+    font-size: 14px;
+    font-weight: bold;
     text-decoration: none;
     transition: 0.5s;
 }
@@ -208,7 +214,7 @@ span{
     text-align: center;
     bottom: 10px;
     color: yellow;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 
