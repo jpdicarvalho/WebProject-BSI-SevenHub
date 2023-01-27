@@ -17,7 +17,7 @@ if(empty($id)){
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' type='text/css' href='css/visualizar.css'>
+    <link rel='stylesheet' type='text/css' href='css/editar.css'>
     <title>Editar Perfil</title>
 </head>
 <body>
@@ -36,13 +36,17 @@ if(empty($id)){
             $empty_input = true;
             echo "<p style='color: #f00;'>Erro: Formato de e-mail inválido</p>";
         }if(!$empty_input){
-            $query_up_usuario = "UPDATE users SET nome=:nome, descricao=:descricao, linkedin=:linkedin, instagram=:instagram, email=:email WHERE id=:id";
+            $query_up_usuario = "UPDATE users SET nome=:nome, descricao=:descricao, linkedin=:linkedin, instagram=:instagram, email=:email, html=:html, css=:css, php=:php, javascript=:javascript  WHERE id=:id";
             $edit_usuario = $conn->prepare($query_up_usuario);
             $edit_usuario->bindParam(':nome', $dados['nome'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':descricao', $dados['descricao'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':linkedin', $dados['linkedin'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':instagram', $dados['instagram'], PDO::PARAM_STR);
             $edit_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
+            $edit_usuario->bindParam(':html', $dados['html'], PDO::PARAM_INT);
+            $edit_usuario->bindParam(':css', $dados['css'], PDO::PARAM_INT);
+            $edit_usuario->bindParam(':php', $dados['php'], PDO::PARAM_INT);
+            $edit_usuario->bindParam(':javascript', $dados['javascript'], PDO::PARAM_INT);
             $edit_usuario->bindParam(':id', $id, PDO::PARAM_INT);
             if($edit_usuario->execute()){
                 echo"<script> alert('Suas informações foram alteradas com sucesso!');
@@ -58,7 +62,7 @@ if(empty($id)){
     ?>
     <?php
     //buscando os dados já cadastrados pelo usuário
-    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor, descricao, linkedin, instagram FROM users WHERE id=$id LIMIT 1";
+    $query_usuario = "SELECT id, nome, email, usuario, desenvolvedor, descricao, linkedin, instagram, html, css, php, javascript FROM users WHERE id=$id LIMIT 1";
     $result_usuario = $conn->prepare($query_usuario);
     $result_usuario->execute();
     ?>
@@ -94,9 +98,42 @@ if(empty($id)){
                     </textarea>
                     <h2>Skill</h2>
                     <div class='Skillfilde'>
-                        <div class='SkillBox'>HTML</div>
-                        <div class='SkillBox'>CSS</div>
-                        <div class='SkillBox'>java</div>
+                    <div class='SkillBox'>
+                        <?php
+                            if(isset($row_usuario['html']) AND ($row_usuario['html'] == 1)){
+                                $selecionado = "checked";
+                            }else{
+                                $selecionado = "";
+                            }
+                        ?>
+                        <input type='checkbox' name='html' id='html' value="1" <?php echo $selecionado?>><p style='color: #f00;'>HTML</p>
+                        <?php
+                            if(isset($row_usuario['css']) AND ($row_usuario['css'] == 1)){
+                                $selecionado = "checked";
+                            }else{
+                                $selecionado = "";
+                            }
+                        ?>
+                        <input type='checkbox' name='css' id='css' value="1" <?php echo $selecionado?>><p style='color: #000080;'>CSS</p>
+                        <?php
+                            if(isset($row_usuario['php']) AND ($row_usuario['php'] == 1)){
+                                $selecionado = "checked";
+                            }else{
+                                $selecionado = "";
+                            }
+                        ?>
+                        
+                        <input type='checkbox' name='php' id='php' value="1" <?php echo $selecionado?>><p style='color: aqua;'>PHP</p>
+                        <?php
+                            if(isset($row_usuario['javascript']) AND ($row_usuario['javascript'] == 1)){
+                                $selecionado = "checked";
+                            }else{
+                                $selecionado = "";
+                            }
+                        ?>
+                        
+                        <input type='checkbox' name='javascript' id='javascript' value="1" <?php echo $selecionado?>><p style='color: yellow;'>JavaScript</p>
+                    </div>
                     </div>
                     <h2>Projetos</h2>
                         <div class='Skillfilde'>
@@ -105,31 +142,31 @@ if(empty($id)){
                         <div class='SkillBox'>Mobile</div>
                     </div>
                     <h2>Contato</h2>
-                    <div class='Skillfilde'>
-                        <div class='SkillBox'>
+                    <div class='Skillfilde-contato'>
+                        
                             <input type='text' name='linkedin' id='linkedin' placeholder='Informe seu LinkedIn' value="<?php
                                     if(isset($dados['linkedin'])){
                                         echo $dados['linkedin'];
                                     }elseif(isset($row_usuario['linkedin'])){
                                         echo $row_usuario['linkedin'];
                                     }?>">
-                        </div>
-                        <div class='SkillBox'>
+                        
+                        
                             <input type='text' name='instagram' id='instagram' placeholder='Informe seu Instagram' value="<?php
                                     if(isset($dados['instagram'])){
                                         echo $dados['instagram'];
                                     }elseif(isset($row_usuario['instagram'])){
                                         echo $row_usuario['instagram'];
                                     }?>">
-                        </div>   
-                        <div class='SkillBox'>
+                          
+                        
                             <input type='text' name='email' id='email' placeholder='Informe seu e-mail' value="<?php
                                     if(isset($dados['email'])){
                                         echo $dados['email'];
                                     }elseif(isset($row_usuario['email'])){
                                         echo $row_usuario['email'];
                                     }?>">
-                        </div>
+                        
                     </div>
                     <div class='Skillfilde'>
                         <div id='voltar'>

@@ -177,28 +177,3 @@ h4{
     border-radius: 30px;
     border-radius: 30px;
 }
-form{
-    min-width: 300px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-width: 300px;
-    margin-top: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px;
-    padding-bottom: 20px;
-}
-
-input{
-    background: rgba(255, 255, 255, 0.05);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px;
-    width: 50%;
-    text-align: center;
-}
