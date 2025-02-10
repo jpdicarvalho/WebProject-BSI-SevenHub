@@ -41,5 +41,3 @@ All pending implementations have been done.
 a) Implement the 'Edit Profile' functionality belonging to the restricted area of ​​the developer user; (done)
 b) Import the user's data to the 'view profile' page so that he can see how his profile is being presented; (done)
 c) Implement the functionality of 'View Profile' of the developers listed in the restricted area of ​​the company user. (done)
-
-project link: https://webprojectbsi-2019.000webhostapp.com/index.html
